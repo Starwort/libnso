@@ -1,6 +1,6 @@
 [package]
 name = "nso"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 license = "MIT"
 license-file = "LICENCE"
@@ -8,7 +8,7 @@ description = "An interface to the Nintendo Switch Online APIs"
 homepage = "https://github.com/starwort/libnso"
 repository = "https://github.com/starwort/libnso"
 readme = "README.md"
-keywords = ["nso", "nintendo", "switch"]
+keywords = ["nso", "nintendo", "switch", "splatoon", "splatoon2", "splatoon3"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
