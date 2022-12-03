@@ -10,6 +10,8 @@ use reqwest::header::{
 use reqwest::Client;
 
 use crate::{get_game_web_token, AppFToken, WEB_VIEW_USER_AGENT};
+/// Splatoon 2's internal ID
+pub const GAME_ID: u64 = 5_741_031_244_955_648;
 
 /// Get the Splatoon 2 access token, based on the user's F token and login token
 ///
@@ -22,13 +24,7 @@ pub async fn get_web_token(
     login_token: &str,
     client: &Client,
 ) -> Result<String, reqwest::Error> {
-    get_game_web_token::<
-        {
-            #[allow(clippy::unreadable_literal)]
-            5741031244955648
-        },
-    >(f, login_token, client)
-    .await
+    get_game_web_token::<GAME_ID>(f, login_token, client).await
 }
 
 /// Get the `iksm_session`, based on the user's Splatoon 2 access token

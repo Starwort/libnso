@@ -8,7 +8,9 @@ use serde_json::Value;
 use crate::{get_game_web_token, AppFToken, WEB_VIEW_USER_AGENT};
 
 /// Version of the Splatoon 3 API being mocked
-pub const WEB_VIEW_VERSION: &str = "1.0.0-63bad6e1";
+pub const WEB_VIEW_VERSION: &str = env!("SPLATOON3_WEB_VIEW_VERSION");
+/// Splatoon 3's internal ID
+pub const GAME_ID: u64 = 4_834_290_508_791_808;
 
 #[doc(hidden)]
 pub mod keys {
@@ -41,13 +43,7 @@ pub async fn get_web_token(
     login_token: &str,
     client: &Client,
 ) -> Result<String, reqwest::Error> {
-    get_game_web_token::<
-        {
-            #[allow(clippy::unreadable_literal)]
-            4834290508791808
-        },
-    >(f, login_token, client)
-    .await
+    get_game_web_token::<GAME_ID>(f, login_token, client).await
 }
 
 /// Get the `bullet_token`, based on the user's Splatoon 2 access token
